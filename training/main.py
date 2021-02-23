@@ -21,7 +21,7 @@ def parse(file_path):
         p = Pizza(nb_ingrediant, list_ingrediant)
         pizza_list.append(p)
 
-    return pizza_list
+    return pizza_list, nb_2group, nb_3group, nb_4group
 
 
 
