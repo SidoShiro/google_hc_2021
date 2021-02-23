@@ -1,4 +1,4 @@
-from model import Pizza
+from model import Pizza, Team
 
 
 def parse(file_path):
@@ -28,12 +28,17 @@ def parse(file_path):
     return pizza_list, nb_2group, nb_3group, nb_4group, hist
 
 
-
-def create_open(file_path):
+# Team
+#  .nb
+#  .pizzas
+def create_open(file_path, teams: list):
     f = open(file_path + ".out", 'w')
-    for i in v_list:
-        f.write("OUTPUT")
-        f.write('\n')
+    f.write(str(len(teams)) + '\n')
+    for team in teams:
+        line = team.nb + team.pizzas[0]
+        for pizza in team.pizzas[1:]:
+            line += ' ' + pizza
+        f.write(line + '\n')
     f.close()
 
 
