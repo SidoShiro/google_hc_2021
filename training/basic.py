@@ -1,4 +1,4 @@
-from .main import Pizza
+from .model import Pizza
 
 
 def score_2_pizzas(a: Pizza, b: Pizza) :
