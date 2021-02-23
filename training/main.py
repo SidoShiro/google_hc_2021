@@ -35,6 +35,6 @@ def create_open(file_path):
 
 if __name__ == '__main__':
     print("start")
-    pizza_list = parse('files/a_example')
+    pizza_list, nb_2group, nb_3group, nb_4group = parse('files/a_example')
     for pizza in pizza_list:
         pizza.pretty_print()
