@@ -2,7 +2,7 @@ from main import parse
 from model import Team
 
 
-def marc_algo(pizza_list, nb_2group, nb_3group, nb_4group):
+def marc_algo(pizza_list, nb_2group, nb_3group, nb_4group, hist):
     teams_list = []
     # Add Pizza to each Team
     for i in range(nb_2group):
