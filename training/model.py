@@ -11,6 +11,7 @@ class Pizza:
 
 class Team:
     def __init__(self, nb: int):
+        self.score = 0
         self.nb = nb
         self.pizzas = []
 
@@ -19,3 +20,7 @@ class Team:
             self.pizzas.append(pizza)
             return True
         return False
+
+    def add_score(self, score):
+        pass
+
