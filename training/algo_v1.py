@@ -53,7 +53,7 @@ def algo_v1(pizza_list, nb_2group, nb_3group, nb_4group, target = 2):
             sc3 = score_3_pizzas(p1, p2, p3)
 
             j = 1
-            while sc3 < target and j < len(pizza_list):
+            while sc3 < target / 2 and j < len(pizza_list):
                 p_tmp = pizza_list[j]
                 j += 1
                 sc3_tmp = score_3_pizzas(p1, p2, p_tmp)
@@ -87,7 +87,7 @@ def algo_v1(pizza_list, nb_2group, nb_3group, nb_4group, target = 2):
             sc3 = score_3_pizzas(p1, p2, p3)
 
             j = 1
-            while sc3 < target and j < len(pizza_list):
+            while sc3 < target / 2 and j < len(pizza_list):
                 p_tmp = pizza_list[j]
                 j += 1
                 sc3_tmp = score_3_pizzas(p1, p2, p_tmp)
@@ -100,7 +100,7 @@ def algo_v1(pizza_list, nb_2group, nb_3group, nb_4group, target = 2):
             sc4 = score_4_pizzas(p1, p2, p3, p4)
 
             j = 1
-            while sc4 < target and j < len(pizza_list):
+            while sc4 < target / 4 and j < len(pizza_list):
                 p_tmp = pizza_list[j]
                 j += 1
                 sc4_tmp = score_4_pizzas(p1, p2, p3, p_tmp)

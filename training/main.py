@@ -1,5 +1,6 @@
 from model import Pizza, Team
 from marc_algo import algo
+from helper import define_target
 
 
 def parse(file_path):
@@ -49,6 +50,8 @@ if __name__ == '__main__':
     file_name = 'files/a_example'
 
     pizza_list, nb_2group, nb_3group, nb_4group, hist = parse(file_name)
+
+    target = define_target(pizza_list)
 
     teams = marc_algo(pizza_list, nb_2group, nb_3group, nb_4group, hist)
 
