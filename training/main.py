@@ -47,14 +47,21 @@ def create_open(file_path, teams: list):
 if __name__ == '__main__':
     print("start")
 
-    file_name = 'files/a_example'
+    prefix = 'files/'
 
-    pizza_list, nb_2group, nb_3group, nb_4group, hist = parse(file_name)
+    for file_name in ['a_example',
+                      'b_little_bit_of_everything.in',
+                      'c_many_ingredients.in',
+                      'd_many_pizzas.in',
+                      'e_many_teams.in']:
 
-    target = define_target(pizza_list)
+        pizza_list, nb_2group, nb_3group, nb_4group, hist = parse(prefix + file_name)
+        target = define_target(pizza_list)
 
-    teams = algo_v1_fun(pizza_list, nb_2group, nb_3group, nb_4group, target)
+        teams = algo_v1_fun(pizza_list, nb_2group, nb_3group, nb_4group, target)
 
-    create_open(file_name, teams)
+        # teams = marc_algo(pizza_list, nb_2group, nb_3group, nb_4group, hist)
+
+        create_open(file_name, teams)
 
     print('end')
