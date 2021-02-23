@@ -1,6 +1,7 @@
 from model import Pizza, Team
 from helper import define_target
 from algo_v1 import algo_v1_fun
+from marc_algo import marc_algo
 
 
 def parse(file_path):
@@ -58,9 +59,9 @@ if __name__ == '__main__':
         pizza_list, nb_2group, nb_3group, nb_4group, hist = parse(prefix + file_name)
         target = define_target(pizza_list)
 
-        teams = algo_v1_fun(pizza_list, nb_2group, nb_3group, nb_4group, target)
+        # teams = algo_v1_fun(pizza_list, nb_2group, nb_3group, nb_4group, target)
 
-        # teams = marc_algo(pizza_list, nb_2group, nb_3group, nb_4group, hist)
+        teams = marc_algo(pizza_list, nb_2group, nb_3group, nb_4group, hist)
 
         create_open(file_name, teams)
 

@@ -1,4 +1,3 @@
-from main import parse
 from model import Team
 
 
