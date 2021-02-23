@@ -7,6 +7,7 @@ def parse(file_path):
     nb_pizza, nb_2group, nb_3group, nb_4group = int(nb_pizza), int(nb_2group), int(nb_3group), int(nb_4group)
 
     pizza_list = []
+    id_pizza = 0
     for i in range(nb_pizza):
         line = f.readline().rstrip()
         cpt = 0
@@ -18,8 +19,9 @@ def parse(file_path):
             else:
                 list_ingrediant.append(word)
             cpt += 1
-        p = Pizza(nb_ingrediant, list_ingrediant)
+        p = Pizza(id_pizza, nb_ingrediant, list_ingrediant)
         pizza_list.append(p)
+        id_pizza += 1
 
     return pizza_list, nb_2group, nb_3group, nb_4group
 
