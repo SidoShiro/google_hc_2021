@@ -15,7 +15,7 @@ class Team:
         self.pizzas = []
 
     def addPizza(self, pizza: Pizza):
-        if len(pizza) > nb:
+        if len(pizza) > self.nb:
             self.pizzas.append(pizza)
             return True
         return False
