@@ -59,9 +59,9 @@ if __name__ == '__main__':
         pizza_list, nb_2group, nb_3group, nb_4group, hist = parse(prefix + file_name)
         target = define_target(pizza_list)
 
-        # teams = algo_v1_fun(pizza_list, nb_2group, nb_3group, nb_4group, target)
+        teams = algo_v1_fun(pizza_list, nb_2group, nb_3group, nb_4group, target)
 
-        teams = marc_algo(pizza_list, nb_2group, nb_3group, nb_4group, hist)
+        # teams = marc_algo(pizza_list, nb_2group, nb_3group, nb_4group, hist)
 
         create_open(file_name, teams)
 
