@@ -1,4 +1,5 @@
 from model import Pizza, Team
+from marc_algo import algo
 
 
 def parse(file_path):
@@ -35,17 +36,22 @@ def create_open(file_path, teams: list):
     f = open(file_path + ".out", 'w')
     f.write(str(len(teams)) + '\n')
     for team in teams:
-        line = team.nb + team.pizzas[0]
+        line = str(team.nb) + ' ' + str(team.pizzas[0].id_pizza)
         for pizza in team.pizzas[1:]:
-            line += ' ' + pizza
+            line += ' ' + str(pizza.id_pizza)
         f.write(line + '\n')
     f.close()
 
 
 if __name__ == '__main__':
     print("start")
-    pizza_list, nb_2group, nb_3group, nb_4group, hist = parse('files/a_example')
-    for pizza in pizza_list:
-        pizza.pretty_print()
-    print('----')
-    print(hist)
+
+    file_name = 'files/a_example'
+
+    pizza_list, nb_2group, nb_3group, nb_4group, hist = parse(file_name)
+
+    teams = marc_algo(pizza_list, nb_2group, nb_3group, nb_4group, hist)
+
+    create_open(file_name, teams)
+
+    print('end')
