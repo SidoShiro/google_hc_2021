@@ -1,11 +1,10 @@
-from main import parse
 from model import Team
 from basic import score_2_pizzas
 from basic import score_3_pizzas
 from basic import score_4_pizzas
 
 
-def algo_v1(pizza_list, nb_2group, nb_3group, nb_4group, target = 2):
+def algo_v1_fun(pizza_list, nb_2group, nb_3group, nb_4group, target=2):
     teams_list = []
     # Add Pizza to each Team
     for i in range(nb_2group):
