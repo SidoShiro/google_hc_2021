@@ -24,16 +24,26 @@ class Intersection:
 
     def init_scheduler_histo(self, blacklist_streets: [], histo):
         # Clean Histo
+        """
         list_keys_to_rm = []
         for k in histo.keys():
             if histo[k][0] == 0:
                 list_keys_to_rm.append(k)
         for k in list_keys_to_rm:
             del histo[k]
+        """
+
+        small_used_key = self.streets_in[0]
+        small_used_value = 10000000
+        for s in self.streets_in:
+            if 0 < histo[s][0] < small_used_value:
+                small_used_key = s
+                small_used_value = histo[s][0]
 
         for i in self.streets_in:
             if i not in blacklist_streets:
-                self.scheduler.append((i, 1))
+                self.scheduler.append((i, histo[i][0] // histo[small_used_key][0]))
+
         if 0 == len(self.scheduler):
             self.scheduler.append((self.streets_in[0], 1))
 
