@@ -2,6 +2,8 @@
 
  Team : **LesCopainsDAvant ? LoL**
  
+ Total Points : 9,284,560
+ 
  > Rank World : 1669 / 9004
  
  
