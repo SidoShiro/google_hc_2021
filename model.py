@@ -1,7 +1,7 @@
 
 class Street:
     def __init__(self, street_id, len: int, inter_a: int, inter_b: int):
-        self.id = id
+        self.id = street_id
         self.len = len
         self.interA = inter_a
         self.interB = inter_b
@@ -10,8 +10,10 @@ class Street:
 
 class Intersection:
     def __init__(self, inter_id, streets_in: [], streets_out: []):
+        self.inter_id = inter_id
         self.streetsIn = streets_in
         self.streetsOut = streets_out
+        self.trafficLights = [TrafficLight(False) for i in len(streets_in)]
 
 
 class Car:
@@ -21,6 +23,8 @@ class Car:
         self.stuck = stuck
         self.path = path
 
+
 class TrafficLight:
-    def __init__(self, ):
+    def __init__(self, green: bool):
+        self.green = green
 
