@@ -8,3 +8,5 @@ def write_result(file_name, list_intersection: [], list_streets: [], list_cars: 
         f_out.write(str(c_inter.scheduler))
         for sch in c_inter.scheduler:
             f_out.write(list_streets[sch[0]].street_id + " " + str(sch[1]))
+
+    f_out.close()
