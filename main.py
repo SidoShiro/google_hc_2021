@@ -27,6 +27,7 @@ def parse(file_path):
         inter_elt.init_scheduler()
 
     # Cars
+    street_hist = {}
     cars = []
     car_id = 0
     for j in range(v):
@@ -39,11 +40,12 @@ def parse(file_path):
                 p = int(word)
             else:
                 path.append(street_map[word])
+                street_hist[word] = street_hist.get(word, 0) + 1
             cpt += 1
         car_id += 1
         cars.append(Car(car_id, d, True, path))
 
-    return street_map, inter_map, cars
+    return street_map, inter_map, cars, street_hist
 
 
 
