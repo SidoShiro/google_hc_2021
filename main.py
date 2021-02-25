@@ -14,14 +14,17 @@ def parse(file_path):
         #Out
 
         if b not in inter_map:
-            inter_map[b] = Intersection(b, [], [street_map[street_name]])
+            inter_map[b] = Intersection(b, [], [street_name])
         else:
-            inter_map[b].streets_out.append([street_map[street_name]])
+            inter_map[b].streets_out.append(street_name)
         #in
         if e not in inter_map:
-            inter_map[e] = Intersection(e, [street_map[street_name]], [])
+            inter_map[e] = Intersection(e, [street_name], [])
         else:
-            inter_map[e].streets_in.append([street_map[street_name]])
+            inter_map[e].streets_in.append(street_name)
+
+    for inter_elt in inter_map.values():
+        inter_elt.init_scheduler()
 
     # Cars
     cars = []

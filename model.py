@@ -14,7 +14,10 @@ class Intersection:
         self.streets_in = streets_in
         self.streets_out = streets_out
         self.traffic_lights = [TrafficLight(False) for i in range(len(streets_in))]
-        self.scheduler = [(streets_in[i], 1) for i in range(len(streets_in))]
+        self.scheduler = []
+
+    def init_scheduler(self):
+        self.scheduler = [(self.streets_in[i], 1) for i in range(len(self.streets_in))]
 
 
 
