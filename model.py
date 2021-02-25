@@ -32,7 +32,7 @@ class Intersection:
             del histo[k]
 
         for i in self.streets_in:
-            if not i in blacklist_streets:
+            if i not in blacklist_streets:
                 self.scheduler.append((i, 1))
         if 0 == len(self.scheduler):
             self.scheduler.append((self.streets_in[0], 1))

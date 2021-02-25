@@ -53,6 +53,7 @@ def parse_smart(file_path):
 
     return street_map, inter_map, cars, street_hist
 
+
 if __name__ == '__main__':
     files = [
         'a.txt',
