@@ -1,8 +1,8 @@
 
 class Street:
-    def __init__(self, street_id, len: int, inter_a: int, inter_b: int):
+    def __init__(self, street_id, length: int, inter_a: int, inter_b: int):
         self.id = street_id
-        self.len = len
+        self.length = length
         self.interA = inter_a
         self.interB = inter_b
         self.cars_list = []
