@@ -27,11 +27,6 @@ def parse(file_path):
         else:
             inter_map[e].streets_in.append(street_name)
 
-    list_never_streets = get_never_list_streets(street_hist)
-
-    for inter_elt in inter_map.values():
-        inter_elt.init_scheduler(list_never_streets)
-
     # Cars
     cars = []
     car_id = 0
@@ -49,6 +44,11 @@ def parse(file_path):
             cpt += 1
         car_id += 1
         cars.append(Car(car_id, d, True, path))
+
+    list_never_streets = get_never_list_streets(street_hist)
+
+    for inter_elt in inter_map.values():
+        inter_elt.init_scheduler(list_never_streets)
 
     return street_map, inter_map, cars, street_hist
 
