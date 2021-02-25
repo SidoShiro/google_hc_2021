@@ -13,9 +13,11 @@ if __name__ == '__main__':
     ]
 
     for f in files:
+        print(f, " -- Parse")
 
         street_map, inter_map, list_cars, street_hist = parse(f)
 
+        print(f, " -- Write")
+
         write_result(f + '.out', inter_map.values(), street_map.values(), list_cars)
-
-
+        print()
