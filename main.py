@@ -12,15 +12,16 @@ def parse(file_path):
         b, e, l = int(b), int(e), int(l)
         street_map[street_name] = Street(street_name, l, b, e)
         #Out
+
         if b not in inter_map:
-            inter_map[b] = Intersection(b, [], street_map[street_name])
+            inter_map[b] = Intersection(b, [], [street_map[street_name]])
         else:
-            inter_map[b].streetsOut.append(street_map[street_name])
+            inter_map[b].streets_out.append([street_map[street_name]])
         #in
         if e not in inter_map:
-            inter_map[e] = Intersection(e, street_map[street_name], [])
+            inter_map[e] = Intersection(e, [street_map[street_name]], [])
         else:
-            inter_map[e].streetsIn.append(street_map[street_name])
+            inter_map[e].streets_in.append([street_map[street_name]])
 
     # Cars
     cars = []
@@ -44,4 +45,8 @@ def parse(file_path):
 
 
 if __name__ == '__main__':
-    parse('a.txt')
+    street_map, inter_map, cars = parse('a.txt')
+
+    print(street_map)
+    print(inter_map)
+    print(cars)
