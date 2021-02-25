@@ -50,7 +50,7 @@ def parse(file_path):
 
 
 if __name__ == '__main__':
-    street_map, inter_map, cars = parse('a.txt')
+    street_map, inter_map, cars, street_hist = parse('a.txt')
 
     print(street_map)
     print(inter_map)

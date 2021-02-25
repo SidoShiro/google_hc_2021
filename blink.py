@@ -13,7 +13,7 @@ if __name__ == '__main__':
 
     for f in files:
 
-        street_map, inter_map, list_cars = parse(f)
+        street_map, inter_map, list_cars, street_hist = parse(f)
         write_result(f + '.out', inter_map.values(), street_map.values(), list_cars)
 
 
