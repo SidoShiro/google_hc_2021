@@ -1,4 +1,4 @@
-def never_list_streets(histo):
+def get_never_list_streets(histo):
     list_never_streets = []
     for k in histo.keys():
         if histo[k] == 0:

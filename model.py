@@ -1,4 +1,3 @@
-
 class Street:
     def __init__(self, street_id, length: int, inter_a: int, inter_b: int):
         self.street_id = street_id
@@ -16,9 +15,10 @@ class Intersection:
         self.traffic_lights = [TrafficLight(False) for i in range(len(streets_in))]
         self.scheduler = []
 
-    def init_scheduler(self):
-        self.scheduler = [(self.streets_in[i], 1) for i in range(len(self.streets_in))]
-
+    def init_scheduler(self, blacklist_streets: []):
+        for i in self.streets_in:
+            if not i in blacklist_streets:
+                self.scheduler.append((i, 1))
 
 
 class Car:
@@ -32,4 +32,3 @@ class Car:
 class TrafficLight:
     def __init__(self, green: bool):
         self.green = green
-

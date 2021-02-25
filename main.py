@@ -1,3 +1,4 @@
+from helper import get_never_list_streets
 from model import *
 
 def parse(file_path):
@@ -26,8 +27,10 @@ def parse(file_path):
         else:
             inter_map[e].streets_in.append(street_name)
 
+    list_never_streets = get_never_list_streets(street_hist)
+
     for inter_elt in inter_map.values():
-        inter_elt.init_scheduler()
+        inter_elt.init_scheduler(list_never_streets)
 
     # Cars
     cars = []
