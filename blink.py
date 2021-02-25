@@ -15,4 +15,5 @@ if __name__ == '__main__':
 
         parse(f)
         list_intersection, list_streets = [], []
-        write_result(f + '.out', list_intersection, list_streets)
+        list_cars = []
+        write_result(f + '.out', list_intersection, list_streets, list_cars)
