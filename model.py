@@ -11,15 +11,15 @@ class Street:
 class Intersection:
     def __init__(self, inter_id, streets_in: [], streets_out: []):
         self.inter_id = inter_id
-        self.streetsIn = streets_in
-        self.streetsOut = streets_out
-        self.trafficLights = [TrafficLight(False) for i in len(streets_in)]
+        self.streets_in = streets_in
+        self.streets_out = streets_out
+        self.traffic_lights = [TrafficLight(False) for i in len(streets_in)]
 
 
 class Car:
     def __init__(self, car_id, min_time_left: int, stuck: bool, path: []):
         self.id = car_id
-        self.minTimeLeft = min_time_left
+        self.min_time_left = min_time_left
         self.stuck = stuck
         self.path = path
 
