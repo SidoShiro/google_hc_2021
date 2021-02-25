@@ -35,14 +35,37 @@ class Intersection:
 
         small_used_key = self.streets_in[0]
         small_used_value = 10000000
+
+        biggest_len = 0
+        biggest_key = 0
+        smallest_len = 10000000
+        smallest_key = 0
+
         for s in self.streets_in:
             if 0 < histo[s][0] < small_used_value:
                 small_used_key = s
                 small_used_value = histo[s][0]
+            if histo[s][1] > biggest_len:
+                biggest_len = histo[s][1]
+                biggest_key = s
+            if histo[s][1] < smallest_len:
+                smallest_len = histo[s][1]
+                smallest_key = s
 
+        time_ponderator = 1000000
         for i in self.streets_in:
             if i not in blacklist_streets:
-                self.scheduler.append((i, histo[i][0] // histo[small_used_key][0]))
+                time = 1 + ((histo[i][0] * biggest_len) // (2 * histo[i][1] * histo[small_used_key][0]))
+                if time < time_ponderator:
+                    time_ponderator = time
+                self.scheduler.append((i, time))
+
+        for i in range(len(self.scheduler)):
+            self.scheduler[i] = (self.scheduler[i][0], self.scheduler[i][1] // time_ponderator)
+
+        # Sort Schedulers depending on car position in streets_in
+        # self.scheduler.sort(key=lambda t: t[1], reverse=True)
+        # self.scheduler.sort(key=lambda t: t[1], reverse=False)
 
         if 0 == len(self.scheduler):
             self.scheduler.append((self.streets_in[0], 1))
