@@ -22,6 +22,21 @@ class Intersection:
         if 0 == len(self.scheduler):
             self.scheduler.append((self.streets_in[0], 1))
 
+    def init_scheduler_histo(self, blacklist_streets: [], histo):
+        # Clean Histo
+        list_keys_to_rm = []
+        for k in histo.keys():
+            if histo[k][0] == 0:
+                list_keys_to_rm.append(k)
+        for k in list_keys_to_rm:
+            del histo[k]
+
+        for i in self.streets_in:
+            if not i in blacklist_streets:
+                self.scheduler.append((i, 1))
+        if 0 == len(self.scheduler):
+            self.scheduler.append((self.streets_in[0], 1))
+
 
 class Car:
     def __init__(self, car_id, min_time_left: int, stuck: bool, path: []):
