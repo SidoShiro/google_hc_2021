@@ -12,7 +12,7 @@ def parse(file_path):
         b, e, street_name, l = file.readline().rstrip().split(' ')
         b, e, l = int(b), int(e), int(l)
         street_map[street_name] = Street(street_name, l, b, e)
-        street_hist[street_name] = 0
+        street_hist[street_name] = (0, l)
 
         #Out
 
@@ -42,7 +42,7 @@ def parse(file_path):
                 p = int(word)
             else:
                 path.append(street_map[word])
-                street_hist[word] = street_hist.get(word, 0) + 1
+                street_hist[word] = (street_hist.get(word)[0] + 1, street_hist.get(word)[1])
             cpt += 1
         car_id += 1
         cars.append(Car(car_id, d, True, path))
