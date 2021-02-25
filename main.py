@@ -6,6 +6,9 @@ def parse(file_path):
     d, i, s, v, f = file.readline().rstrip().split(' ')
     d, i, s, v, f = int(d), int(i), int(s), int(v), int(f)
 
+
+    step_one_histo = {}
+    step_two_histo = {}
     street_hist = {}
     street_map = {}
     inter_map = {}
@@ -14,6 +17,8 @@ def parse(file_path):
         b, e, l = int(b), int(e), int(l)
         street_map[street_name] = Street(street_name, l, b, e)
         street_hist[street_name] = (0, l)
+        step_one_histo[street_name] = (0, l)
+        step_two_histo[street_name] = (0, l)
 
         #Out
 
@@ -41,6 +46,12 @@ def parse(file_path):
             else:
                 path.append(street_map[word])
                 street_hist[word] = (street_hist.get(word)[0] + 1, street_hist.get(word)[1])
+                if cpt == 1:
+                    step_one_histo[word] = (step_one_histo.get(word)[0] + 1, step_one_histo.get(word)[1])
+                if cpt == 2:
+                    step_two_histo[word] = (step_two_histo.get(word)[0] + 1, step_two_histo.get(word)[1])
+
+
             cpt += 1
         car_id += 1
         cars.append(Car(car_id, d, True, path))
@@ -50,14 +61,17 @@ def parse(file_path):
     for inter_elt in inter_map.values():
         inter_elt.init_scheduler(list_never_streets)
 
-    return street_map, inter_map, cars, street_hist
+    return street_map, inter_map, cars, street_hist, step_one_histo, step_one_histo
+
+
 
 
 
 if __name__ == '__main__':
-    street_map, inter_map, cars, street_hist = parse('a.txt')
+    street_map, inter_map, cars, street_hist, step_one_histo, step_one_histo = parse('a.txt')
 
     print(street_map)
     print(inter_map)
     print(cars)
     print(street_hist)
+    print(step_one_histo)
