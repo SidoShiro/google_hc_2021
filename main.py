@@ -5,12 +5,15 @@ def parse(file_path):
     d, i, s, v, f = file.readline().rstrip().split(' ')
     d, i, s, v, f = int(d), int(i), int(s), int(v), int(f)
 
+    street_hist = {}
     street_map = {}
     inter_map = {}
     for j in range(s): #street
         b, e, street_name, l = file.readline().rstrip().split(' ')
         b, e, l = int(b), int(e), int(l)
         street_map[street_name] = Street(street_name, l, b, e)
+        street_hist[street_name] = 0
+
         #Out
 
         if b not in inter_map:
@@ -27,7 +30,6 @@ def parse(file_path):
         inter_elt.init_scheduler()
 
     # Cars
-    street_hist = {}
     cars = []
     car_id = 0
     for j in range(v):
@@ -55,3 +57,4 @@ if __name__ == '__main__':
     print(street_map)
     print(inter_map)
     print(cars)
+    print(street_hist)
