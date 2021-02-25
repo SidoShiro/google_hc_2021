@@ -22,7 +22,7 @@ class Intersection:
         if 0 == len(self.scheduler):
             self.scheduler.append((self.streets_in[0], 1))
 
-    def init_scheduler_histo(self, blacklist_streets: [], histo):
+    def init_scheduler_histo(self, blacklist_streets: [], histo, step_one_histo):
         # Clean Histo
         """
         list_keys_to_rm = []
@@ -64,8 +64,25 @@ class Intersection:
             self.scheduler[i] = (self.scheduler[i][0], self.scheduler[i][1] // time_ponderator)
 
         # Sort Schedulers depending on car position in streets_in
-        # self.scheduler.sort(key=lambda t: t[1], reverse=True)
+        self.scheduler.sort(key=lambda t: t[1], reverse=True)
         # self.scheduler.sort(key=lambda t: t[1], reverse=False)
+
+        # Sort wit one_histo
+
+        biggest_len_histo_one_key = 0
+        biggest_len_histo_one = 0
+        for s in self.streets_in:
+            if step_one_histo[s][0] > biggest_len_histo_one:
+                biggest_len_histo_one = step_one_histo[s][0]
+                biggest_len_histo_one_key = s
+
+        for s in range(len(self.scheduler)):
+            if self.scheduler[s][0] == biggest_len_histo_one_key:
+                tmp = self.scheduler[0]
+                self.scheduler[0] = self.scheduler[s]
+                self.scheduler[s] = tmp
+                break
+
 
         if 0 == len(self.scheduler):
             self.scheduler.append((self.streets_in[0], 1))
