@@ -13,8 +13,8 @@ class Intersection:
         self.inter_id = inter_id
         self.streets_in = streets_in
         self.streets_out = streets_out
-        self.traffic_lights = [TrafficLight(False) for i in len(streets_in)]
-        self.scheduler = [(streets_in[i], 1) for i in len(streets_in)]
+        self.traffic_lights = [TrafficLight(False) for i in range(len(streets_in))]
+        self.scheduler = [(streets_in[i], 1) for i in range(len(streets_in))]
 
 
 
